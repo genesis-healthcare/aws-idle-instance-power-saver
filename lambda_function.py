@@ -1,18 +1,19 @@
 import boto3
 import json
-from resources import EC2_INSTANCES, ECS_CLUSTERS, RDS_INSTANCES, AURORA_CLUSTERS
+from resources import EC2_INSTANCES, ECS_CLUSTERS, RDS_INSTANCES, AURORA_CLUSTERS, APP_RUNNER_SERVICES
 
 def lambda_handler(event, context):
     ec2_client = boto3.client('ec2')
     ecs_client = boto3.client('ecs')
     rds_client = boto3.client('rds')
+    apprunner_client = boto3.client('apprunner')
 
     action = event.get('action')
 
     if action == 'start':
-        start_resources(ec2_client, ecs_client, rds_client)
+        start_resources(ec2_client, ecs_client, rds_client, apprunner_client)
     elif action == 'stop':
-        stop_resources(ec2_client, ecs_client, rds_client)
+        stop_resources(ec2_client, ecs_client, rds_client, apprunner_client)
     else:
         return {
             'statusCode': 400,
@@ -24,7 +25,7 @@ def lambda_handler(event, context):
         'body': json.dumps(f'{action.capitalize()} action completed successfully.')
     }
 
-def start_resources(ec2_client, ecs_client, rds_client):
+def start_resources(ec2_client, ecs_client, rds_client, apprunner_client):
     # Start EC2 instances
     if EC2_INSTANCES:
         ec2_client.start_instances(InstanceIds=EC2_INSTANCES)
@@ -69,7 +70,17 @@ def start_resources(ec2_client, ecs_client, rds_client):
         except Exception as e:
             print(f"Unexpected error starting Aurora cluster {cluster}: {str(e)}")
 
-def stop_resources(ec2_client, ecs_client, rds_client):
+    # Start App Runner services
+    for service_arn in APP_RUNNER_SERVICES:
+        try:
+            apprunner_client.resume_service(
+                ServiceArn=service_arn,
+            )
+            print(f'Scaled up App Runner service: {service_arn}')
+        except Exception as e:
+            print(f"Error scaling up App Runner service {service_arn}: {str(e)}")
+
+def stop_resources(ec2_client, ecs_client, rds_client, apprunner_client):
     # Stop EC2 instances
     if EC2_INSTANCES:
         ec2_client.stop_instances(InstanceIds=EC2_INSTANCES)
@@ -113,3 +124,13 @@ def stop_resources(ec2_client, ecs_client, rds_client):
             print(f"Error stopping Aurora cluster {cluster}: {str(e)}")
         except Exception as e:
             print(f"Unexpected error stopping Aurora cluster {cluster}: {str(e)}")
+
+    # Scale down App Runner services
+    for service_arn in APP_RUNNER_SERVICES:
+        try:
+            apprunner_client.pause_service(
+                ServiceArn=service_arn,
+            )
+            print(f'Scaled down App Runner service: {service_arn}')
+        except Exception as e:
+            print(f"Error scaling down App Runner service {service_arn}: {str(e)}")

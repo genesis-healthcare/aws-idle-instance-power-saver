@@ -25,3 +25,10 @@ AURORA_CLUSTERS = [
     "example-aurora-cluster-1",  # Example Aurora Cluster 1
     "example-aurora-cluster-2",  # Example Aurora Cluster 2
 ]
+
+# Define the list of App Runner service ARNs that should be managed by the Lambda function.
+# Replace these ARNs with your actual App Runner service ARNs.
+APP_RUNNER_SERVICES = [
+    "arn:aws:apprunner:region:account-id:service/example-service-1/service-id-1",  # Example App Runner Service 1
+    "arn:aws:apprunner:region:account-id:service/example-service-2/service-id-2",  # Example App Runner Service 2
+]

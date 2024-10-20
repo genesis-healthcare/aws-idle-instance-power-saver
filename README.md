@@ -99,11 +99,14 @@ Ensure that your Lambda function has the necessary permissions to manage EC2 ins
                 "rds:StopDBInstance",
                 "rds:StartDBCluster",
                 "rds:StopDBCluster",
-                "rds:DescribeDBInstances"
+                "rds:DescribeDBInstances",
+                "apprunner:PauseService",
+                "apprunner:ResumeService"
             ],
             "Resource": "*"
         }
     ]
+}
 ```
 
 ## License
