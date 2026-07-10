@@ -91,17 +91,11 @@ APP_RUNNER_SERVICES = [
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/gaia2-back_dev/ddbc5688910d4866850e1033ae7c58d1",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/edomons/83556c8c9db74b79981da3774e6d6718",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/paper-report-dev/167c29be0cea49139458aa5431632f07",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen_stg/44e13be890b54358ac7d9cf700bbeb40",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/myself-stg/6ffc6f6356034d9688c8581038a9f959",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen-back_stg/a56640c318d34b2da1fd21bcbeb96ae3",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen-front_stg/21ea619e2f694daab37225aa12491737",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen-front-stg/817d2a093a2f453394c1cd4774c8f121",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/ghbio-genelink-staging/20d4ca4d36894580a270484b0c369c9d",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/genovision-pgx-stg/3a68ec19900443608f6da9190ed54f58",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/nalims-front-stg/ef3be2e3be93428fb950c77cef71f9ac",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/nalims-back-stg/c0dd8a66ea7649ffaaa7079f58782f7e",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/tokyo-front-stg/0cdfef522b854b5a869bfd2116ce5672",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/tokyo-back-stg/f2c4ba3206b54b7986aff14eaf9512b6",
 ]
 
 ON_DEMAND_RESOURCES = [
@@ -149,12 +143,7 @@ ON_DEMAND_RESOURCES = [
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/gaia2-back_dev/ddbc5688910d4866850e1033ae7c58d1",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/edomons/83556c8c9db74b79981da3774e6d6718",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/paper-report-dev/167c29be0cea49139458aa5431632f07",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen_stg/44e13be890b54358ac7d9cf700bbeb40",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen-front_stg/21ea619e2f694daab37225aa12491737",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/ximen-back_stg/a56640c318d34b2da1fd21bcbeb96ae3",
     # "arn:aws:apprunner:ap-northeast-1:934400637619:service/myself-stg/6ffc6f6356034d9688c8581038a9f959",
     "arn:aws:apprunner:ap-northeast-1:934400637619:service/genovision-pgx-stg/3a68ec19900443608f6da9190ed54f58",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/tokyo-front-stg/0cdfef522b854b5a869bfd2116ce5672",
-    # "arn:aws:apprunner:ap-northeast-1:934400637619:service/tokyo-back-stg/f2c4ba3206b54b7986aff14eaf9512b6",
 ]
 
